@@ -29,3 +29,23 @@ func (s service) CreateProduct() (uint, error) {
 	}
 	return id, nil
 }
+
+type promotion struct {
+	ID      int
+	purchaseMin int
+	discount    int
+}
+
+func CalculateDiscount(amount int) (promotionPrice int,err error) {
+
+	if amount <= 0 {
+		return 0, ErrAmountZero
+	}
+
+	if amount >= promotion.purchaseMin {
+		discountPrice := amount*(1 - (1*promotion.discount/100))
+		return discountPrice,nil
+	}
+
+	return promotion{}, nil
+}

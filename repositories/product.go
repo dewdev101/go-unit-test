@@ -5,6 +5,11 @@ import (
 	"gorm.io/gorm"
 )
 
+type Promotion struct {
+	ID int
+	
+}
+
 type ProductRepositories interface {
 	//method
 	CreateProduct() (uint, error)
